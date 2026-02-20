@@ -4,7 +4,7 @@ import { Github, Linkedin, MessageCircle } from 'lucide-react';
 
 export default function SocialLinks() {
     return (
-        <div className="hidden md:block w-10 fixed bottom-0 left-auto right-auto z-10 text-slate-light md:left-10 w-10">
+        <div className="hidden md:block w-10 fixed bottom-0 left-auto right-auto z-40 text-slate-light md:left-10 w-10">
             <motion.ul
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

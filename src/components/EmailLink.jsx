@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function EmailLink() {
     return (
-        <div className="hidden md:block w-10 fixed bottom-0 left-auto right-10 z-10 text-slate-light">
+        <div className="hidden md:block w-10 fixed bottom-0 left-auto right-10 z-40 text-slate-light">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
