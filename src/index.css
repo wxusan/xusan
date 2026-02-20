@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-navy-base text-slate-base antialiased selection:bg-mint-tint selection:text-slate-light;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-slate-light font-sans font-bold;
+  }
+}
+
+/* Custom Webkit Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-navy-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-dark border-[3px] border-solid border-navy-dark rounded-[10px];
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-base;
+}
+
+@layer utilities {
+  .nav-link {
+    @apply relative text-[13px] font-mono hover:text-mint-base transition-colors py-2 px-3;
+  }
+
+  .nav-link::before {
+    content: "0" counter(item) ". ";
+    counter-increment: item;
+    @apply text-mint-base mr-1;
+  }
+
+  .btn-outline {
+    @apply text-mint-base bg-transparent border border-mint-base rounded py-[1.25rem] px-[1.75rem] font-mono text-[14px] leading-[1] text-center hover:bg-mint-tint hover:-translate-y-1 hover:shadow-lg hover:shadow-navy-dark transition-all duration-300;
+  }
+
+  .section-heading {
+    @apply flex items-center relative mb-10 w-full text-2xl md:text-3xl whitespace-nowrap;
+  }
+
+  .section-heading::before {
+    content: "0" counter(section) ". ";
+    counter-increment: section;
+    @apply text-mint-base font-mono text-xl md:text-2xl mr-3 font-normal mb-1;
+  }
+
+  .section-heading::after {
+    content: "";
+    @apply block w-[300px] h-[1px] bg-navy-light ml-5;
+    max-width: 100%;
+  }
+}
