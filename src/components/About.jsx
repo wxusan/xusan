@@ -25,7 +25,9 @@ export default function About() {
                                 Hello! My name is Xusan and I enjoy creating things that live on the internet. My interest in web development started back in the day when I decided to try editing custom Tumblr themes. Turns out hacking together HTML & CSS taught me a lot about design and structure!
                             </p>
                             <p>
-                                Fast-forward to today, and I've had the privilege of working at the intersection of <span className="text-mint-base">UI/UX, frontend architecture, and applied AI</span>. My main focus these days is building accessible, inclusive products and digital experiences for a variety of clients.
+                                Fast-forward to today, and I've had the privilege of working at the intersection of
+                                <span className="text-mint-base">full-stack web, mobile apps, and applied AI</span>.
+                                My main focus these days is building accessible, inclusive products and digital experiences for a variety of clients.
                             </p>
                             <p>
                                 I currently study at the American University of Technology in Tashkent, where my approach blends logical user flows with highly immersive (yet clean) micro-interactions to create products that are not just visually sharp, but intelligently built.

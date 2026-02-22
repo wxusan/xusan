@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { cn } from '../utils/cn';
+import { getResume } from '../lib/notion';
 
 const navLinks = [
     { name: 'About', href: '#about' },
@@ -12,8 +13,15 @@ const navLinks = [
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [resumeUrl, setResumeUrl] = useState('/resume.pdf'); // Fallback
 
     useEffect(() => {
+        const fetchResume = async () => {
+            const url = await getResume();
+            if (url) setResumeUrl(url);
+        };
+        fetchResume();
+
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
         };
@@ -58,7 +66,7 @@ export default function Navbar() {
                         </motion.a>
                     ))}
                     <motion.a
-                        href="/resume.pdf"
+                        href={resumeUrl}
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5, duration: 0.5 }}
@@ -101,7 +109,7 @@ export default function Navbar() {
                                 </a>
                             ))}
                             <a
-                                href="/resume.pdf"
+                                href={resumeUrl}
                                 className="btn-outline mt-4"
                                 target="_blank"
                                 rel="noopener noreferrer"

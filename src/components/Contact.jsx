@@ -20,10 +20,14 @@ export default function Contact() {
                     </h3>
 
                     <p className="text-slate-base font-sans text-lg mb-12 max-w-lg mx-auto leading-relaxed">
-                        Although I'm not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                        My inbox is always open. Whether you have a new project in mind, inquiries and proposals, or just want to connect, I'd love to hear from you!
                     </p>
 
-                    <a href="mailto:nasux1222@gmail.com" className="btn-outline inline-block px-7 py-4 text-[14px]">
+                    <a
+                        href="mailto:nasux1222@gmail.com?subject=Inquiry%20from%20Portfolio%20Website"
+                        id="contact-btn"
+                        className="btn-outline inline-block px-7 py-4 text-[14px] transition-all duration-300 hover:bg-mint-tint/20 hover:text-mint-base"
+                    >
                         Say Hello
                     </a>
                 </motion.div>
