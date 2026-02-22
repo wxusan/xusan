@@ -7,7 +7,7 @@ export default function Hero() {
     const three = <h3 className="text-slate-base font-sans font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1] mb-6">I build systems for the web.</h3>;
     const four = (
         <p className="text-slate-base font-sans text-lg md:text-xl max-w-xl leading-relaxed mb-12">
-            From idea to production, end to end. I design the experience, engineer the system, and integrate AI where it creates real value. Currently focused on building accessible, human-centered products at the intersection of UI/UX, frontend architecture, and applied AI.
+          From idea to production, end to end. I design the experience, engineer the system, and integrate AI where it creates real value. Currently focused on building accessible, human-centered products at the intersection of solid engineering and applied AI used only where it genuinely matters.
         </p>
     );
     const five = (

@@ -10,6 +10,7 @@ const navLinks = [
     { name: 'Contact', href: '#contact' },
 ];
 
+
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -120,8 +121,7 @@ export default function Navbar() {
                     </motion.div>
                 )}
             </AnimatePresence>
-
-            {/* Mobile Menu Backdrop */}
+            
             <AnimatePresence>
                 {mobileMenuOpen && (
                     <motion.div
