@@ -3,25 +3,27 @@ const NOTION_DATABASE_ID = import.meta.env.VITE_NOTION_DATABASE_ID;
 
 // A generic fetch wrapper for Notion API
 const fetchFromNotion = async (endpoint, body) => {
-    // Note: Calling Notion API directly from the browser will usually result in a CORS error.
-    // For a production portfolio built on Vite (SPA), you typically need a serverless function 
-    // or a CORS proxy to securely handle the API key and request. 
-    // We are using a public CORS proxy for this client-side demonstration.
-    const url = `https://cors-anywhere.herokuapp.com/https://api.notion.com/v1/${endpoint}`;
+    // Determine the base URL based on whether we are in production (Vercel) or local development
+    const baseUrl = import.meta.env.MODE === 'production'
+        ? ''
+        : 'http://localhost:5173'; // Usually vite runs on 5173
 
-    const response = await fetch(url, {
+    // Call our serverless function instead of the direct Notion API
+    // This securely hides the API key on the backend and bypasses browser CORS!
+    const response = await fetch(`${baseUrl}/api/notion`, {
         method: 'POST',
         headers: {
-            'Authorization': `Bearer ${NOTION_API_KEY}`,
-            'Notion-Version': '2022-06-28',
             'Content-Type': 'application/json',
-            'Origin': window.location.origin
         },
-        body: JSON.stringify(body)
+        body: JSON.stringify({
+            endpoint,
+            body
+        })
     });
 
     if (!response.ok) {
-        throw new Error(`Notion API error: ${response.statusText}`);
+        const err = await response.json();
+        throw new Error(`Notion API proxy error: ${err.message || response.statusText}`);
     }
 
     return response.json();
