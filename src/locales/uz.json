@@ -1,0 +1,41 @@
+{
+  "navbar": {
+    "about": "Men haqimda",
+    "work": "Ishlarim",
+    "contact": "Aloqa",
+    "resume": "Rezyume"
+  },
+  "hero": {
+    "greeting": "Salom, mening ismim",
+    "tagline": "Men web uchun tizimlar yarataman.",
+    "description": "G'oyadan ishlab chiqarishgacha, boshidan oxirigacha. Men tajribani loyihalashtirib, tizimlarni muhandislab, AI ni haqiqiy qiymat yaratadigan joylarga integratsiya qilaman. Hozirda mustahkam muhandislik va amaliy AI kesishmasida insonlarga yo'naltirilgan mahsulotlar yaratishga e'tibor qaratganman — faqat bu haqiqatan muhim bo'lgan joylarda.",
+    "cta": "Ishlarimni ko'ring!"
+  },
+  "about": {
+    "heading": "Men haqimda",
+    "bio1": "Salom! Mening ismim Xusan va men internetda yashaydigan narsalar yaratishdan zavq olaman. Veb-dasturlashga qiziqishim Tumblr mavzularini tahrirlashga qaror qilganimda boshlandi. Ma'lum bo'lishicha, HTML va CSS bilan ishlash menga dizayn va tuzilma haqida ko'p narsani o'rgatdi!",
+    "bio2_pre": "Bugun, men",
+    "bio2_highlight": "full-stack veb, mobil ilovalar va amaliy AI",
+    "bio2_post": " kesishmasida ishlash imkoniyatiga ega bo'ldim. Hozirda asosiy maqsadim — turli mijozlar uchun qulay va inkluziv mahsulotlar va raqamli tajribalar yaratish.",
+    "bio3": "Hozirda men Toshkentdagi American University of Technology'da o'qiyman. Mening yondashuvim mantiqiy foydalanuvchi oqimlarini jozibali (lekin toza) mikro-interaktsiyalar bilan uyg'unlashtiradi — faqat ko'rinishi emas, balki aqlli qurilgan mahsulotlar yaratadi.",
+    "tech_intro": "Yaqinda ishlagan texnologiyalarimdan bir nechtasi:"
+  },
+  "projects": {
+    "heading": "Ba'zi yaratganlarim",
+    "empty": "Loyihalar topilmadi.",
+    "gallery": "Galereya",
+    "source_code": "Manba kodi"
+  },
+  "contact": {
+    "eyebrow": "Keyingi qadam?",
+    "heading": "Bog'laning",
+    "body": "Mening pochtam doimo ochiq. Yangi loyiha, taklif, savol bo'lsa yoki shunchaki muloqot qilmoqchi bo'lsangiz — sizdan xabar olishdan xursand bo'laman!",
+    "cta": "Salom yo'llang"
+  },
+  "footer": {
+    "credit": "Xusan Ibragimov tomonidan yaratilgan"
+  },
+  "emaillink": {
+    "copied": "nusxalandi!"
+  }
+}

@@ -3,15 +3,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { cn } from '../utils/cn';
 import { getResume } from '../lib/notion';
-
-const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Work', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
-];
+import { useT } from '../context/LanguageContext';
 
 
 export default function Navbar() {
+    const t = useT();
+    const navLinks = [
+        { name: t('navbar.about'), href: '#about' },
+        { name: t('navbar.work'), href: '#projects' },
+        { name: t('navbar.contact'), href: '#contact' },
+    ];
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [resumeUrl, setResumeUrl] = useState('/resume.pdf'); // Fallback
@@ -75,7 +76,7 @@ export default function Navbar() {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        Resume
+                        {t('navbar.resume')}
                     </motion.a>
                 </nav>
 
@@ -115,7 +116,7 @@ export default function Navbar() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                Resume
+                                {t('navbar.resume')}
                             </a>
                         </nav>
                     </motion.div>

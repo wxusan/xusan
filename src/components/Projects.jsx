@@ -2,8 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Github, Folder, Loader2, X, Image as ImageIcon } from 'lucide-react';
 import { getProjects } from '../lib/notion';
+import { translateContent } from '../lib/translateContent';
+import { useLanguage, useT } from '../context/LanguageContext';
 
 export default function Projects() {
+    const lang = useLanguage();
+    const t = useT();
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
     const [selectedProject, setSelectedProject] = useState(null);
@@ -11,11 +15,12 @@ export default function Projects() {
     useEffect(() => {
         const fetchProjects = async () => {
             const data = await getProjects();
-            setProjects(data);
+            const translated = await translateContent(data, lang);
+            setProjects(translated);
             setLoading(false);
         };
         fetchProjects();
-    }, []);
+    }, [lang]);
 
     useEffect(() => {
         if (selectedProject) {
@@ -44,7 +49,7 @@ export default function Projects() {
                     viewport={{ once: true, margin: "-100px" }}
                     className="mb-12"
                 >
-                    <h2 className="section-heading">Some Things I've Built</h2>
+                    <h2 className="section-heading">{t('projects.heading')}</h2>
                 </motion.div>
 
                 {loading ? (
@@ -53,7 +58,7 @@ export default function Projects() {
                     </div>
                 ) : projects.length === 0 ? (
                     <div className="text-center text-slate-base my-20 font-mono">
-                        No projects found.
+                        {t('projects.empty')}
                     </div>
                 ) : (
                     <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -174,7 +179,7 @@ export default function Projects() {
                                     ))}
                                     {selectedProject.githubLink && (
                                         <a href={selectedProject.githubLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-mono text-xs text-slate-base hover:text-mint-base transition-colors px-3 py-1 border border-slate-dark rounded-full">
-                                            <Github size={14} /> Source Code
+                                            <Github size={14} /> {t('projects.source_code')}
                                         </a>
                                     )}
                                 </div>
@@ -185,7 +190,7 @@ export default function Projects() {
 
                                 {selectedProject.images && selectedProject.images.length > 0 && (
                                     <div className="flex flex-col gap-6">
-                                        <h4 className="text-mint-base font-mono text-sm tracking-widest uppercase">Gallery</h4>
+                                        <h4 className="text-mint-base font-mono text-sm tracking-widest uppercase">{t('projects.gallery')}</h4>
                                         {selectedProject.images.map((imgUrl, i) => (
                                             <img
                                                 key={i}

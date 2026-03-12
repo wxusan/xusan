@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useT } from '../context/LanguageContext';
 
 export default function About() {
+    const t = useT();
     const skills = [
         'Next.js', 'React', 'TypeScript', 'JavaScript (ES6+)',
         'UI/UX Design', 'Machine Learning', 'Deep Learning', 'Node.js'
@@ -16,24 +18,20 @@ export default function About() {
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true, margin: "-100px" }}
                 >
-                    <h2 className="section-heading">About Me</h2>
+                    <h2 className="section-heading">{t('about.heading')}</h2>
 
                     <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
                         {/* Bio Content Text */}
                         <div className="w-full lg:w-3/5 text-slate-base font-sans text-lg leading-relaxed space-y-4">
+                            <p>{t('about.bio1')}</p>
                             <p>
-                                Hello! My name is Xusan and I enjoy creating things that live on the internet. My interest in web development started back in the day when I decided to try editing custom Tumblr themes. Turns out hacking together HTML & CSS taught me a lot about design and structure!
+                                {t('about.bio2_pre')}
+                                <span className="text-mint-base"> {t('about.bio2_highlight')}</span>
+                                {t('about.bio2_post')}
                             </p>
-                            <p>
-                                Fast-forward to today, and I've had the privilege of working at the intersection of 
-                                <span className="text-mint-base"> full-stack web, mobile apps, and applied AI</span>.
-                                My main focus these days is building accessible, inclusive products and digital experiences for a variety of clients.
-                            </p>
-                            <p>
-                                I currently study at the American University of Technology in Tashkent, where my approach blends logical user flows with highly immersive (yet clean) micro-interactions to create products that are not just visually sharp, but intelligently built.
-                            </p>
+                            <p>{t('about.bio3')}</p>
 
-                            <p className="pt-2">Here are a few technologies I've been working with recently:</p>
+                            <p className="pt-2">{t('about.tech_intro')}</p>
 
                             <ul className="grid grid-cols-2 gap-x-2 gap-y-2 mt-4 font-mono text-sm text-slate-base">
                                 {skills.map((skill, index) => (

@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useT } from '../context/LanguageContext';
 
 export default function EmailLink() {
+    const t = useT();
+    const copiedText = t('emaillink.copied');
     return (
         <div className="hidden md:block w-10 fixed bottom-0 left-auto right-10 z-40 text-slate-light">
             <motion.div
@@ -15,7 +18,7 @@ export default function EmailLink() {
                         navigator.clipboard.writeText('nasux1222@gmail.com');
                         const el = e.currentTarget;
                         const originalText = el.innerText;
-                        el.innerText = 'copied!';
+                        el.innerText = copiedText;
                         el.style.color = '#64ffda';
                         setTimeout(() => {
                             el.innerText = originalText;

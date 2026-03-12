@@ -1,19 +1,21 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useT } from '../context/LanguageContext';
 
 export default function Hero() {
-    const one = <h1 className="text-mint-base font-mono mb-6 text-sm md:text-base font-normal tracking-wide">Hi, my name is</h1>;
+    const t = useT();
+    const one = <h1 className="text-mint-base font-mono mb-6 text-sm md:text-base font-normal tracking-wide">{t('hero.greeting')}</h1>;
     const two = <h2 className="text-slate-light font-sans font-bold text-5xl sm:text-6xl md:text-7xl lg:text-[80px] leading-[1.1] mb-2">Xusan Ibragimov.</h2>;
-    const three = <h3 className="text-slate-base font-sans font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1] mb-6">I build systems for the web.</h3>;
+    const three = <h3 className="text-slate-base font-sans font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1] mb-6">{t('hero.tagline')}</h3>;
     const four = (
         <p className="text-slate-base font-sans text-lg md:text-xl max-w-xl leading-relaxed mb-12">
-          From idea to production, end to end. I design the experience, engineer the system, and integrate AI where it creates real value. Currently focused on building accessible, human-centered products at the intersection of solid engineering and applied AI used only where it genuinely matters.
+          {t('hero.description')}
         </p>
     );
     const five = (
         <div className="flex gap-4">
             <a href="#projects" className="btn-outline">
-                Check out my work!
+                {t('hero.cta')}
             </a>
         </div>
     );

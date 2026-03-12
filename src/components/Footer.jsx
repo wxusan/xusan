@@ -1,7 +1,9 @@
 import React from 'react';
 import { Github, Linkedin, MessageCircle } from 'lucide-react';
+import { useT } from '../context/LanguageContext';
 
 export default function Footer() {
+    const t = useT();
     return (
         <footer className="p-[15px] flex flex-col items-center justify-center text-center bg-navy-base z-10 relative">
             <div className="flex md:hidden items-center justify-center gap-6 mb-4 mt-10">
@@ -17,7 +19,7 @@ export default function Footer() {
             </div>
 
             <a href="https://github.com/wxusan" target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-slate-base tracking-widest hover:text-mint-base transition-colors p-3 block">
-                <div>Designed & Built by Xusan Ibragimov</div>
+                <div>{t('footer.credit')}</div>
             </a>
         </footer>
     );

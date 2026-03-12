@@ -1,3 +1,4 @@
+import { LanguageProvider } from './context/LanguageContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -9,6 +10,7 @@ import Footer from './components/Footer';
 
 function App() {
     return (
+        <LanguageProvider>
         <div className="relative min-h-screen bg-navy-base font-sans selection:bg-mint-tint selection:text-slate-light">
             <Navbar />
             <SocialLinks />
@@ -23,6 +25,7 @@ function App() {
 
             <Footer />
         </div>
+        </LanguageProvider>
     );
 }
 
