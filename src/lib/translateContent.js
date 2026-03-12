@@ -15,7 +15,7 @@ async function translateText(text, targetLang) {
 export async function translateContent(projects, lang) {
     if (lang === 'en' || !projects.length) return projects;
 
-    const cacheKey = `translate_${lang}_${projects.map(p => p.id).join('_')}`;
+    const cacheKey = `translate_v2_${lang}_${projects.map(p => p.id).join('_')}`;
 
     try {
         const cached = sessionStorage.getItem(cacheKey);

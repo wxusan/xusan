@@ -32,7 +32,15 @@ export default async function handler(req, res) {
             return res.status(200).json({ translatedText: null });
         }
 
-        return res.status(200).json({ translatedText: data.responseData.translatedText });
+        const raw = data.responseData.translatedText;
+        const decoded = raw
+            .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
+            .replace(/&amp;/g, '&')
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&quot;/g, '"')
+            .replace(/&apos;/g, "'");
+        return res.status(200).json({ translatedText: decoded });
     } catch (error) {
         console.error('Translation API Error:', error);
         return res.status(200).json({ translatedText: null });
