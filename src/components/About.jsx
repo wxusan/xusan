@@ -5,8 +5,8 @@ import { useT } from '../context/LanguageContext';
 export default function About() {
     const t = useT();
     const skills = [
-        'Next.js', 'React', 'TypeScript', 'JavaScript (ES6+)',
-        'UI/UX Design', 'Machine Learning', 'Deep Learning', 'Node.js'
+        'JavaScript (ES6+)', 'TypeScript', 'React', 'Next.js',
+        'Node.js', 'UI/UX Design', 'Machine Learning', 'Deep Learning',
     ];
 
     return (

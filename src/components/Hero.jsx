@@ -1,15 +1,59 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useT } from '../context/LanguageContext';
 
+function useTypewriter(text, speed = 45) {
+    const [displayed, setDisplayed] = useState('');
+    const [done, setDone] = useState(false);
+
+    useEffect(() => {
+        if (!text) return;
+        setDisplayed('');
+        setDone(false);
+        const startAt = setTimeout(() => {
+            let i = 0;
+            const tick = setInterval(() => {
+                i++;
+                setDisplayed(text.slice(0, i));
+                if (i >= text.length) {
+                    clearInterval(tick);
+                    setDone(true);
+                }
+            }, speed);
+            return () => clearInterval(tick);
+        }, 1200);
+        return () => clearTimeout(startAt);
+    }, [text]);
+
+    return { displayed, done };
+}
+
 export default function Hero() {
     const t = useT();
-    const one = <h1 className="text-mint-base font-mono mb-6 text-sm md:text-base font-normal tracking-wide">{t('hero.greeting')}</h1>;
-    const two = <h2 className="text-slate-light font-sans font-bold text-5xl sm:text-6xl md:text-7xl lg:text-[80px] leading-[1.1] mb-2">Xusan Ibragimov.</h2>;
-    const three = <h3 className="text-slate-base font-sans font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1] mb-6">{t('hero.tagline')}</h3>;
+    const tagline = t('hero.tagline');
+    const { displayed, done } = useTypewriter(tagline);
+
+    const one = (
+        <h1 className="text-mint-base font-mono mb-6 text-sm md:text-base font-normal tracking-wide">
+            {t('hero.greeting')}
+        </h1>
+    );
+    const two = (
+        <h2 className="text-slate-light font-sans font-bold text-5xl sm:text-6xl md:text-7xl lg:text-[80px] leading-[1.1] mb-2">
+            Xusan Ibragimov.
+        </h2>
+    );
+    const three = (
+        <h3 className="text-slate-base font-sans font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1] mb-6 min-h-[1.15em]">
+            {displayed}
+            <span
+                className={`inline-block w-[3px] h-[0.8em] bg-mint-base ml-1 align-middle ${done ? 'animate-blink' : ''}`}
+            />
+        </h3>
+    );
     const four = (
         <p className="text-slate-base font-sans text-lg md:text-xl max-w-xl leading-relaxed mb-12">
-          {t('hero.description')}
+            {t('hero.description')}
         </p>
     );
     const five = (
