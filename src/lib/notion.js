@@ -1,6 +1,12 @@
 const NOTION_API_KEY = import.meta.env.VITE_NOTION_API_KEY;
 const NOTION_DATABASE_ID = import.meta.env.VITE_NOTION_DATABASE_ID;
 
+const normalizeUrl = (url) => {
+    if (!url) return '';
+    if (url.startsWith('http://') || url.startsWith('https://')) return url;
+    return `https://${url}`;
+};
+
 // A generic fetch wrapper for Notion API
 const fetchFromNotion = async (endpoint, body) => {
     // Determine the base URL based on whether we are in production (Vercel) or local development
@@ -60,8 +66,8 @@ export const getProjects = async () => {
                 description: page.properties['Description']?.rich_text[0]?.plain_text || '',
                 image: page.properties['Image']?.files[0]?.file?.url || page.properties['Image']?.files[0]?.external?.url || '',
                 images: page.properties['Image']?.files?.map(f => f.file?.url || f.external?.url).filter(Boolean) || [],
-                liveLink: page.properties['Live Link']?.url || '',
-                githubLink: page.properties['Github Link']?.url || '',
+                liveLink: normalizeUrl(page.properties['Live Link']?.url || ''),
+                githubLink: normalizeUrl(page.properties['Github Link']?.url || ''),
                 tech: techArray,
             };
         });
