@@ -1,139 +1,47 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { cn } from '../utils/cn';
-import { getResume } from '../lib/notion';
 import { useT } from '../context/LanguageContext';
-
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Navbar() {
     const t = useT();
-    const navLinks = [
-        { name: t('navbar.about'), href: '#about' },
-        { name: t('navbar.work'), href: '#projects' },
-        { name: t('navbar.contact'), href: '#contact' },
-    ];
     const [scrolled, setScrolled] = useState(false);
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [resumeUrl, setResumeUrl] = useState('/resume.pdf'); // Fallback
-
+    const [open, setOpen] = useState(false);
+    const dialog = useRef(null);
+    const toggle = useRef(null);
+    const links = [{ key: 'about', href: '#about' }, { key: 'work', href: '#projects' }, { key: 'contact', href: '#contact' }];
     useEffect(() => {
-        const fetchResume = async () => {
-            const url = await getResume();
-            if (url) setResumeUrl(url);
-        };
-        fetchResume();
-
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        const onScroll = () => setScrolled(window.scrollY > 50);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        const onResize = () => { if (window.innerWidth >= 1000) setOpen(false); };
+        window.addEventListener('resize', onResize);
+        return () => { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onResize); };
     }, []);
-
-    return (
-        <motion.header
-            initial={{ y: -100 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-                scrolled ? "bg-navy-base/85 backdrop-blur-md shadow-lg shadow-navy-dark/50 py-4" : "bg-transparent py-6"
-            )}
-        >
-            <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
-                {/* Logo */}
-                <a href="#home" className="text-mint-base text-xl font-mono font-bold hover:text-mint-tint transition-colors relative z-50 z-index-50">
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 1 }}
-                    >
-                        &#x3C;XI /&#x3E;
-                    </motion.div>
-                </a>
-
-                {/* Desktop Nav */}
-                <nav className="hidden md:flex items-center gap-2" style={{ counterReset: "item 0" }}>
-                    {navLinks.map((link, i) => (
-                        <motion.a
-                            key={link.name}
-                            href={link.href}
-                            initial={{ opacity: 0, y: -20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 * i, duration: 0.5 }}
-                            className="nav-link"
-                        >
-                            {link.name}
-                        </motion.a>
-                    ))}
-                    <motion.a
-                        href={resumeUrl}
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5, duration: 0.5 }}
-                        className="btn-outline ml-4 px-4 py-2 text-[13px]"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        {t('navbar.resume')}
-                    </motion.a>
-                </nav>
-
-                {/* Mobile Toggle */}
-                <button
-                    className="md:hidden text-mint-base hover:text-slate-light transition-colors relative z-50"
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                >
-                    {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-                </button>
+    useEffect(() => {
+        const menu = dialog.current;
+        if (!open) { if (menu.open) menu.close(); return; }
+        menu.showModal();
+        const previous = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        return () => { document.body.style.overflow = previous; if (menu.open) menu.close(); toggle.current?.focus({ preventScroll: true }); };
+    }, [open]);
+    const navItems = links.map(link => <a key={link.key} href={link.href} className="nav-link" onClick={() => setOpen(false)}>{t(`navbar.${link.key}`)}</a>);
+    return <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
+        <div className="header-inner">
+            <a href="#home" className="site-logo" aria-label={`Xusan Ibragimov — ${t('navbar.home')}`}>&lt;XI /&gt;</a>
+            <div className="header-actions">
+                <nav className="desktop-nav" aria-label={t('navbar.navigation')} style={{ counterReset: 'item 0' }}>{navItems}</nav>
+                <LanguageSwitcher />
+                <button ref={toggle} type="button" className="menu-toggle" aria-label={t(open ? 'navbar.close_menu' : 'navbar.open_menu')}
+                    aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(value => !value)}><Menu size={25} aria-hidden="true" /></button>
             </div>
-
-            {/* Mobile Nav */}
-            <AnimatePresence>
-                {mobileMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, x: '100%' }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: '100%' }}
-                        transition={{ type: "tween", duration: 0.3 }}
-                        className="fixed inset-y-0 right-0 w-[75vw] max-w-sm bg-navy-light flex items-center justify-center h-screen shadow-2xl z-40"
-                    >
-                        <nav className="flex flex-col items-center gap-8 w-full" style={{ counterReset: "item 0" }}>
-                            {navLinks.map((link) => (
-                                <a
-                                    key={link.name}
-                                    href={link.href}
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="nav-link text-lg flex flex-col items-center"
-                                >
-                                    {link.name}
-                                </a>
-                            ))}
-                            <a
-                                href={resumeUrl}
-                                className="btn-outline mt-4"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                {t('navbar.resume')}
-                            </a>
-                        </nav>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-            
-            <AnimatePresence>
-                {mobileMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 bg-navy-dark/70 backdrop-blur-sm z-30 md:hidden"
-                        onClick={() => setMobileMenuOpen(false)}
-                    />
-                )}
-            </AnimatePresence>
-        </motion.header>
-    );
+        </div>
+        <dialog ref={dialog} id="mobile-navigation" className="mobile-navigation" aria-labelledby="mobile-menu-label"
+            onCancel={() => setOpen(false)} onClose={() => setOpen(false)} onClick={event => { if (event.target === event.currentTarget) setOpen(false); }}>
+            <h2 id="mobile-menu-label" className="sr-only">{t('navbar.navigation')}</h2>
+            <button className="menu-close" type="button" aria-label={t('navbar.close_menu')} onClick={() => setOpen(false)}><X size={28} aria-hidden="true" /></button>
+            <nav aria-label={t('navbar.navigation')} style={{ counterReset: 'item 0' }}>{navItems}<LanguageSwitcher /></nav>
+        </dialog>
+    </header>;
 }

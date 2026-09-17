@@ -1,84 +1,67 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { ArrowUpRight, MessageCircle } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { useT } from '../context/LanguageContext';
+import ParticlePortrait from './ParticlePortrait';
+import './hero.css';
 
-function useTypewriter(text, speed = 45) {
-    const [displayed, setDisplayed] = useState('');
-    const [done, setDone] = useState(false);
-
+function TypedTagline({ text, reducedMotion }) {
+    const [length, setLength] = useState(text.length);
     useEffect(() => {
-        if (!text) return;
-        setDisplayed('');
-        setDone(false);
-        const startAt = setTimeout(() => {
-            let i = 0;
-            const tick = setInterval(() => {
-                i++;
-                setDisplayed(text.slice(0, i));
-                if (i >= text.length) {
-                    clearInterval(tick);
-                    setDone(true);
-                }
-            }, speed);
-            return () => clearInterval(tick);
-        }, 1200);
-        return () => clearTimeout(startAt);
-    }, [text]);
-
-    return { displayed, done };
+        if (reducedMotion) return;
+        setLength(0);
+        let interval;
+        let index = 0;
+        const delay = window.setTimeout(() => {
+            interval = window.setInterval(() => {
+                index += 1;
+                setLength(index);
+                if (index >= text.length) window.clearInterval(interval);
+            }, 38);
+        }, 550);
+        return () => {
+            window.clearTimeout(delay);
+            window.clearInterval(interval);
+        };
+    }, [text, reducedMotion]);
+    return (
+        <p className="hero-tagline">
+            <span className="sr-only">{text}</span>
+            {/* Reserve the final line breaks while the visible text types in. */}
+            <span className="hero-tagline-measure" aria-hidden="true">{text}<span className="hero-cursor" /></span>
+            <span className="hero-tagline-typed" aria-hidden="true">
+                {reducedMotion ? text : text.slice(0, length)}
+                <span className="hero-cursor" />
+            </span>
+        </p>
+    );
 }
 
 export default function Hero() {
     const t = useT();
+    const reducedMotion = useReducedMotion();
     const tagline = t('hero.tagline');
-    const { displayed, done } = useTypewriter(tagline);
-
-    const one = (
-        <h1 className="text-mint-base font-mono mb-6 text-sm md:text-base font-normal tracking-wide">
-            {t('hero.greeting')}
-        </h1>
-    );
-    const two = (
-        <h2 className="text-slate-light font-sans font-bold text-5xl sm:text-6xl md:text-7xl lg:text-[80px] leading-[1.1] mb-2">
-            Xusan Ibragimov.
-        </h2>
-    );
-    const three = (
-        <h3 className="text-slate-base font-sans font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.1] mb-6 min-h-[1.15em]">
-            {displayed}
-            <span
-                className={`inline-block w-[3px] h-[0.8em] bg-mint-base ml-1 align-middle ${done ? 'animate-blink' : ''}`}
-            />
-        </h3>
-    );
-    const four = (
-        <p className="text-slate-base font-sans text-lg md:text-xl max-w-xl leading-relaxed mb-12">
-            {t('hero.description')}
-        </p>
-    );
-    const five = (
-        <div className="flex gap-4">
-            <a href="#projects" className="btn-outline">
-                {t('hero.cta')}
-            </a>
-        </div>
-    );
-
-    const items = [one, two, three, four, five];
 
     return (
-        <section id="home" className="min-h-screen flex flex-col justify-center items-start pt-20 pb-0">
-            <div className="container mx-auto px-6 sm:px-12 md:px-24 max-w-5xl">
-                {items.map((item, i) => (
-                    <motion.div
-                        key={i}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 * i + 0.8, duration: 0.5, ease: 'easeOut' }}
-                    >
-                        {item}
-                    </motion.div>
-                ))}
+        <section id="home" className="hero-section" aria-labelledby="hero-title">
+            <div className="hero-layout">
+                <ParticlePortrait />
+                <motion.div
+                    className="hero-copy"
+                    initial={false}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.65, delay: 0.15 }}
+                >
+                    <p className="hero-greeting">{t('hero.greeting')}</p>
+                    <h1 id="hero-title" className="hero-name"><span>Xusan</span> Ibragimov.</h1>
+                    <TypedTagline key={tagline} text={tagline} reducedMotion={reducedMotion} />
+                    <p className="hero-description">{t('hero.description')}</p>
+                    <div className="hero-actions">
+                        <a href="#contact" className="btn-outline hero-cta">{t('hero.cta')}</a>
+                        <a href="#projects" className="text-link">{t('hero.work')}<ArrowUpRight size={16} aria-hidden="true" /></a>
+                    </div>
+                    <a href="https://t.me/wxusan" target="_blank" rel="noopener noreferrer" className="hero-telegram text-link"><MessageCircle size={16} aria-hidden="true" />{t('hero.telegram')}</a>
+                </motion.div>
             </div>
         </section>
     );

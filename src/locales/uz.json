@@ -3,39 +3,90 @@
     "about": "Men haqimda",
     "work": "Ishlarim",
     "contact": "Aloqa",
-    "resume": "Rezyume"
+    "home": "Bosh sahifa",
+    "navigation": "Asosiy menyu",
+    "open_menu": "Menyuni ochish",
+    "close_menu": "Menyuni yopish",
+    "language": "Tilni tanlash",
+    "skip": "Asosiy mazmunga o'tish"
   },
   "hero": {
     "greeting": "Salom, mening ismim",
-    "tagline": "Men web uchun tizimlar yarataman.",
-    "description": "G'oyadan ishlab chiqarishgacha, boshidan oxirigacha. Men tajribani loyihalashtirib, tizimlarni muhandislab, AI ni haqiqiy qiymat yaratadigan joylarga integratsiya qilaman. Hozirda mustahkam muhandislik va amaliy AI kesishmasida insonlarga yo'naltirilgan mahsulotlar yaratishga e'tibor qaratganman — faqat bu haqiqatan muhim bo'lgan joylarda.",
-    "cta": "Ishlarimni ko'ring!"
+    "tagline": "Biznesingiz uchun veb-saytlar.",
+    "description": "Men Toshkentlik dasturchiman. Biznes uchun veb-saytlar va veb-ilovalarni dastlabki g'oyadan ishga tushirishgacha loyihalayman va yarataman.",
+    "cta": "Loyihani muhokama qilish",
+    "work": "Ishlarni ko'rish",
+    "telegram": "Telegram orqali yozish",
+    "portrait_alt": "Poyga shlemini kiygan Xusan Ibragimovning yalpiz rangli nuqtalardan chizilgan portreti",
+    "portrait_hint": "Kursorni harakatlantiring",
+    "portrait_touch": "Portretga teging",
+    "portrait_pause": "Portret animatsiyasini to'xtatish",
+    "portrait_resume": "Portret animatsiyasini davom ettirish"
   },
   "about": {
     "heading": "Men haqimda",
-    "bio1": "Salom! Mening ismim Xusan va men internetda yashaydigan narsalar yaratishdan zavq olaman. Veb-dasturlashga qiziqishim Tumblr mavzularini tahrirlashga qaror qilganimda boshlandi. Ma'lum bo'lishicha, HTML va CSS bilan ishlash menga dizayn va tuzilma haqida ko'p narsani o'rgatdi!",
-    "bio2_pre": "Bugun, men",
-    "bio2_highlight": "full-stack veb, mobil ilovalar va amaliy AI",
-    "bio2_post": " kesishmasida ishlash imkoniyatiga ega bo'ldim. Hozirda asosiy maqsadim — turli mijozlar uchun qulay va inkluziv mahsulotlar va raqamli tajribalar yaratish.",
-    "bio3": "Hozirda men Toshkentdagi American University of Technology'da o'qiyman. Mening yondashuvim mantiqiy foydalanuvchi oqimlarini jozibali (lekin toza) mikro-interaktsiyalar bilan uyg'unlashtiradi — faqat ko'rinishi emas, balki aqlli qurilgan mahsulotlar yaratadi.",
-    "tech_intro": "Yaqinda ishlagan texnologiyalarimdan bir nechtasi:"
+    "bio1": "Men Xusan, Toshkentlik dasturchiman. Veb-saytlar va veb-ilovalar yarataman, foydalanuvchi ko'radigan qismni uning ortidagi tizim bilan bog'layman.",
+    "bio2_pre": "So‘nggi ishlarim",
+    "bio2_highlight": "ko'chmas mulk, kasting va ta'lim",
+    "bio2_post": " sohalarini qamrab oladi. Odamlarga kerakli ma'lumotni topish va keyingi qadamni qo'yishga yordam beradigan tushunarli, moslashuvchan interfeyslar yarataman.",
+    "tech_intro": "Men ishlaydigan texnologiyalar:",
+    "portrait": "Xusan Ibragimov portreti",
+    "interests": "Bo'sh vaqtimda mashinaviy o'rganish, chuqur o'rganish va neyron tarmoqlarni o'rganishni yoqtiraman. Modellar qanday o'rganishi va ular yordamida nimalar yaratish mumkinligi menga qiziq."
   },
   "projects": {
-    "heading": "Ba'zi yaratganlarim",
-    "empty": "Loyihalar topilmadi.",
-    "gallery": "Galereya",
-    "source_code": "Manba kodi"
+    "heading": "Tanlangan ishlar",
+    "intro": "Uchta loyiha — biznesni o'z auditoriyasi bilan bog'lashning uch xil usuli.",
+    "featured": "Tanlangan loyiha",
+    "visit": "Saytga o'tish",
+    "items": {
+      "uyjoy": {
+        "category": "Ko'chmas mulk platformasi",
+        "description": "O'zbekistondagi turar joy majmualaridan xonadon izlash platformasi. Tashrif buyuruvchilar xonadon rejalarini ko'radi, mavjud variantlarni solishtiradi va savdo jamoasi bilan bog'lanadi.",
+        "alt": "Turar joy majmuasining interaktiv ko'rinishi aks etgan UyJoy sayti",
+        "tags": [
+          "Xonadon rejalari",
+          "Xonadon izlash",
+          "Savdo murojaatlari"
+        ]
+      },
+      "faceproduction": {
+        "category": "Kasting va iste’dodlar",
+        "description": "Kasting agentligi uchun veb-sayt. Kino, reklama va ijodiy suratga olish loyihalari uchun briflar, artistlar arizalari va jamoa bilan bevosita aloqani birlashtiradi.",
+        "alt": "Face Production kasting agentligi sayti",
+        "tags": [
+          "Kasting briflari",
+          "Artistlar arizalari",
+          "Uch til"
+        ]
+      },
+      "madami": {
+        "category": "Xorijda ta'lim",
+        "description": "Xorijda o'qish va viza xizmatlarini tushuntiradigan, jamoani tanishtiradigan hamda bo'lajak talabalarga konsultatsiyaga yozilish imkonini beradigan veb-sayt.",
+        "alt": "Xorijda ta'lim va viza xizmatlari haqidagi Madami Consulting sayti",
+        "tags": [
+          "Xizmatlar tavsifi",
+          "Konsultatsiyaga yozilish",
+          "Moslashuvchan dizayn"
+        ]
+      }
+    }
   },
   "contact": {
-    "eyebrow": "Keyingi qadam?",
-    "heading": "Bog'laning",
-    "body": "Mening pochtam doimo ochiq. Yangi loyiha, taklif, savol bo'lsa yoki shunchaki muloqot qilmoqchi bo'lsangiz — sizdan xabar olishdan xursand bo'laman!",
-    "cta": "Salom yo'llang"
+    "eyebrow": "Loyiha g'oyangiz bormi?",
+    "heading": "Foydali mahsulot yarataylik.",
+    "body": "Nima yaratmoqchisiz, kim uchun va qachongacha? Yozing, keyingi qadamni birga belgilaymiz.",
+    "telegram": "Telegram orqali yozish",
+    "note": "Ish va hamkorlik bo'yicha qisqacha o'zingizni tanishtiring va vazifangiz haqida yozing."
   },
   "footer": {
-    "credit": "Xusan Ibragimov tomonidan yaratilgan"
+    "credit": "Dizayn va dasturlash — Xusan Ibragimov"
   },
-  "emaillink": {
-    "copied": "nusxalandi!"
+  "seo": {
+    "title": "Xusan Ibragimov — Veb-saytlar va veb-ilovalar",
+    "description": "Toshkentlik dasturchi. Biznes uchun veb-saytlar va veb-ilovalar yarataman. UyJoy, Face Production va Madami loyihalarini ko'ring yoki loyihangiz haqida yozing.",
+    "job": "Veb-dasturchi",
+    "image_alt": "Xusan Ibragimov — veb-saytlar va veb-ilovalar — xusan.io",
+    "social_line": "Veb-saytlar va veb-ilovalar",
+    "location": "Toshkent, O'zbekiston"
   }
 }
