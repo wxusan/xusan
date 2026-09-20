@@ -12,7 +12,7 @@ export default function Footer() {
                 <a href="https://github.com/wxusan" target="_blank" rel="noopener noreferrer" className="text-slate-base hover:text-mint-base transition-colors p-2" aria-label="GitHub">
                     <Github size={20} />
                 </a>
-                <a href="https://t.me/+8188038518" target="_blank" rel="noopener noreferrer" className="text-slate-base hover:text-mint-base transition-colors p-2" aria-label="Telegram">
+                <a href="tg://user?id=8188038518" className="text-slate-base hover:text-mint-base transition-colors p-2" aria-label="Telegram">
                     <MessageCircle size={20} />
                 </a>
             </div>

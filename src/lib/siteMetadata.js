@@ -29,7 +29,7 @@ export function siteMetadata(lang, dictionary) {
                 '@type': 'Person', name: 'Xusan Ibragimov', url: SITE_URL,
                 jobTitle: text.job, image: `${SITE_URL}/portrait.jpg`,
                 homeLocation: { '@type': 'Place', name: text.location },
-                sameAs: ['https://github.com/wxusan', 'https://www.instagram.com/ozbeteo/', 'https://t.me/+8188038518'],
+                sameAs: ['https://github.com/wxusan', 'https://www.instagram.com/ozbeteo/', 'tg://user?id=8188038518'],
             },
         },
     };
