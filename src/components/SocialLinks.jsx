@@ -22,7 +22,7 @@ export default function SocialLinks() {
                     </a>
                 </li>
                 <li className="last-of-type:mb-5">
-                    <a href="https://t.me/wxusan" aria-label="Telegram" target="_blank" rel="noopener noreferrer" className="p-2.5 inline-block hover:text-mint-base hover:-translate-y-1 transition-all duration-300">
+                    <a href="https://t.me/+8188038518" aria-label="Telegram" target="_blank" rel="noopener noreferrer" className="p-2.5 inline-block hover:text-mint-base hover:-translate-y-1 transition-all duration-300">
                         <MessageCircle size={20} className="stroke-[1.5]" />
                     </a>
                 </li>

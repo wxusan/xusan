@@ -60,7 +60,7 @@ export default function Hero() {
                         <a href="#contact" className="btn-outline hero-cta">{t('hero.cta')}</a>
                         <a href="#projects" className="text-link">{t('hero.work')}<ArrowUpRight size={16} aria-hidden="true" /></a>
                     </div>
-                    <a href="https://t.me/wxusan" target="_blank" rel="noopener noreferrer" className="hero-telegram text-link"><MessageCircle size={16} aria-hidden="true" />{t('hero.telegram')}</a>
+                    <a href="https://t.me/+8188038518" target="_blank" rel="noopener noreferrer" className="hero-telegram text-link"><MessageCircle size={16} aria-hidden="true" />{t('hero.telegram')}</a>
                 </motion.div>
             </div>
         </section>

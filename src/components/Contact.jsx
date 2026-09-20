@@ -7,7 +7,7 @@ export default function Contact() {
         <h2 id="contact-title">{t('contact.heading')}</h2>
         <p className="contact-body">{t('contact.body')}</p>
         <div className="contact-actions">
-            <a href="https://t.me/wxusan" className="btn-outline" id="contact-btn" target="_blank" rel="noopener noreferrer"><MessageCircle size={17} aria-hidden="true" />{t('contact.telegram')}</a>
+            <a href="https://t.me/+8188038518" className="btn-outline" id="contact-btn" target="_blank" rel="noopener noreferrer"><MessageCircle size={17} aria-hidden="true" />{t('contact.telegram')}</a>
         </div>
         <p className="contact-note">{t('contact.note')}</p>
     </section>;
