@@ -13,7 +13,7 @@
   "hero": {
     "greeting": "Salom, mening ismim",
     "tagline": "Biznesingizdagi muammolar uchun raqamli yechimlar.",
-    "description": "Men Toshkentlik dasturchiman. Biznes uchun veb-saytlar va veb-ilovalarni dastlabki g'oyadan ishga tushirishgacha loyihalayman va yarataman.",
+    "description": "Biznesdagi amaliy muammolarni hal qiladigan raqamli yechimlar, biznes tizimlari va avtomatlashtirish vositalarini yarataman.",
     "cta": "Loyihani muhokama qilish",
     "work": "Ishlarni ko'rish",
     "telegram": "Telegram orqali yozish",
@@ -25,17 +25,17 @@
   },
   "about": {
     "heading": "Men haqimda",
-    "bio1": "Men Xusan, Toshkentlik dasturchiman. Veb-saytlar va veb-ilovalar yarataman, foydalanuvchi ko'radigan qismni uning ortidagi tizim bilan bog'layman.",
+    "bio1": "Men Xusan, Toshkentlik dasturchiman. Biznes ehtiyojlarini foydali raqamli yechimlarga aylantiraman: mijozlar uchun vositalardan ichki tizimlar va ish jarayonlarini avtomatlashtirishgacha.",
     "bio2_pre": "So‘nggi ishlarim",
     "bio2_highlight": "ko'chmas mulk, kasting va ta'lim",
-    "bio2_post": " sohalarini qamrab oladi. Odamlarga kerakli ma'lumotni topish va keyingi qadamni qo'yishga yordam beradigan tushunarli, moslashuvchan interfeyslar yarataman.",
+    "bio2_post": " sohalarini qamrab oladi. Har bir loyiha amaliy vazifani hal qiladi: odamlarga variantlarni ko'rish, ariza yuborish yoki maslahatga yozilishda yordam beradi.",
     "tech_intro": "Men ishlaydigan texnologiyalar:",
     "portrait": "Xusan Ibragimov portreti",
     "interests": "Bo'sh vaqtimda mashinaviy o'rganish, chuqur o'rganish va neyron tarmoqlarni o'rganishni yoqtiraman. Modellar qanday o'rganishi va ular yordamida nimalar yaratish mumkinligi menga qiziq."
   },
   "projects": {
     "heading": "Tanlangan ishlar",
-    "intro": "Uchta loyiha — biznesni o'z auditoriyasi bilan bog'lashning uch xil usuli.",
+    "intro": "Biznesning amaliy ehtiyojlari uchun yaratilgan uchta loyiha.",
     "featured": "Tanlangan loyiha",
     "visit": "Saytga o'tish",
     "items": {
@@ -74,7 +74,7 @@
   "contact": {
     "eyebrow": "Loyiha g'oyangiz bormi?",
     "heading": "Foydali mahsulot yarataylik.",
-    "body": "Nima yaratmoqchisiz, kim uchun va qachongacha? Yozing, keyingi qadamni birga belgilaymiz.",
+    "body": "Biznesingizda qayerda qiyinchilik borligini, qaysi ishlar ko'p qo'l mehnatini talab qilishini yoki nima yaratmoqchi ekaningizni ayting. Foydali yechimni birga topamiz.",
     "telegram": "Telegram orqali yozish",
     "note": "Ish va hamkorlik bo'yicha qisqacha o'zingizni tanishtiring va vazifangiz haqida yozing."
   },
@@ -82,11 +82,11 @@
     "credit": "Dizayn va dasturlash — Xusan Ibragimov"
   },
   "seo": {
-    "title": "Xusan Ibragimov — Veb-saytlar va veb-ilovalar",
-    "description": "Toshkentlik dasturchi. Biznes uchun veb-saytlar va veb-ilovalar yarataman. UyJoy, Face Production va Madami loyihalarini ko'ring yoki loyihangiz haqida yozing.",
-    "job": "Veb-dasturchi",
-    "image_alt": "Xusan Ibragimov — veb-saytlar va veb-ilovalar — xusan.io",
-    "social_line": "Veb-saytlar va veb-ilovalar",
+    "title": "Xusan Ibragimov — Biznes uchun raqamli yechimlar",
+    "description": "Amaliy muammolar uchun raqamli yechimlar, biznes tizimlari va avtomatlashtirish vositalarini yarataman. Ishlarimni ko'ring yoki biznesingizdagi vazifa haqida yozing.",
+    "job": "Raqamli yechimlar dasturchisi",
+    "image_alt": "Xusan Ibragimov — biznes uchun raqamli yechimlar — xusan.io",
+    "social_line": "Biznes uchun raqamli yechimlar",
     "location": "Toshkent, O'zbekiston"
   }
 }

@@ -13,7 +13,7 @@
   "hero": {
     "greeting": "Hi, my name is",
     "tagline": "Digital solutions for your business problems.",
-    "description": "I'm a developer based in Tashkent. I design and build business websites and web applications, from the first idea to launch.",
+    "description": "I build digital tools, business systems, and automation that solve real problems and make everyday work simpler.",
     "cta": "Discuss a project",
     "work": "View selected work",
     "telegram": "Message on Telegram",
@@ -25,17 +25,17 @@
   },
   "about": {
     "heading": "About Me",
-    "bio1": "I'm Xusan, a developer based in Tashkent. I build websites and web applications, connecting what people see with the systems behind it.",
+    "bio1": "I'm Xusan, a developer based in Tashkent. I turn business needs into useful digital solutions, from customer-facing tools to internal systems and workflow automation.",
     "bio2_pre": "My recent work spans",
     "bio2_highlight": "property, casting, and education",
-    "bio2_post": ". I build clear, responsive experiences that help people find what they need and take the next step.",
+    "bio2_post": ". Each project starts with a practical need: helping people explore options, submit applications, or request a consultation.",
     "tech_intro": "Technologies I work with:",
     "portrait": "Portrait of Xusan Ibragimov",
     "interests": "In my free time, I like exploring machine learning, deep learning, and neural networks. I'm curious about how models learn and what we can build with them."
   },
   "projects": {
     "heading": "Selected Work",
-    "intro": "Three projects, three different ways to connect a business with its audience.",
+    "intro": "Three projects built around practical business needs.",
     "featured": "Featured project",
     "visit": "Visit website",
     "items": {
@@ -74,7 +74,7 @@
   "contact": {
     "eyebrow": "Have a project in mind?",
     "heading": "Let's build something useful.",
-    "body": "Tell me what you want to build, who it's for, and your timeline. We can work out the next step together.",
+    "body": "Tell me where your business gets stuck, what takes too much manual work, or what you want to build. We can work out a useful solution together.",
     "telegram": "Message on Telegram",
     "note": "For roles and collaborations, send a short introduction and what you’re working on."
   },
@@ -82,11 +82,11 @@
     "credit": "Designed & built by Xusan Ibragimov"
   },
   "seo": {
-    "title": "Xusan Ibragimov — Websites & Web Applications",
-    "description": "Developer based in Tashkent, building business websites and web applications. Explore UyJoy, Face Production, and Madami, or get in touch about a project.",
-    "job": "Web developer",
-    "image_alt": "Xusan Ibragimov — websites and web applications — xusan.io",
-    "social_line": "Websites & web applications",
+    "title": "Xusan Ibragimov — Digital Solutions for Business",
+    "description": "I build digital solutions, business systems, and automation that solve practical problems. Explore selected work or get in touch about your business challenge.",
+    "job": "Digital solutions developer",
+    "image_alt": "Xusan Ibragimov — digital solutions for business — xusan.io",
+    "social_line": "Digital solutions for business",
     "location": "Tashkent, Uzbekistan"
   }
 }
